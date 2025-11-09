@@ -1,0 +1,9 @@
+{
+    "PORT": "COM3",
+    "MODEL_PATH": "models/yolov8n.pt",
+    "FRAME_WIDTH": 640,
+    "FRAME_HEIGHT": 480,
+    "ALERT_THRESHOLD": 1000,
+    "LOG_ENABLED": true,
+    "LOG_PATH": "data/logs/distance_log.csv"
+}

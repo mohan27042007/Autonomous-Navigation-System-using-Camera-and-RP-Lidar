@@ -20,7 +20,7 @@ while True:
         break
 
     start = time.time()
-    results = model(frame)                # inference
+    results = model(frame, classes=[0, 1, 2, 3, 5, 7], verbose = False)    # inference
     annotated = results[0].plot()         # draw boxes
     end = time.time()
 

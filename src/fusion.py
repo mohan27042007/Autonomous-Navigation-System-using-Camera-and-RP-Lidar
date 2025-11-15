@@ -89,7 +89,7 @@ def main():
         if not ret:
             break
 
-        results = model(frame)
+        results = model(frame, classes=[0, 1, 2, 3, 5, 7], verbose=False)
         annotated = results[0].plot()
 
         # Divide screen width into sectors (left/center/right)

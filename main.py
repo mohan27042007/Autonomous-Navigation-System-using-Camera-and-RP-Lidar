@@ -100,7 +100,7 @@ def main():
         frame_counter += 1
 
         # YOLO inference
-        results = model(frame, verbose=False)
+        results = model(frame, classes=[0, 1, 2, 3, 5, 7], verbose=False)
         annotated = results[0].plot()
 
         # sector lines

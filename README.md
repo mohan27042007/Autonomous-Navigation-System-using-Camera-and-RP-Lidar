@@ -48,6 +48,10 @@ This problem focuses on the **Automotive domain**, specifically **object detecti
 
 
 ## Requirements
+Before we begin, This project requires two hardware devices:
+1. RpLidar(The version I used is A1M8)
+2. USB Camera(Any webcam is fine for testing)
+
 Detailed steps on how to use this repo is given in here: * [How to use](#how-to-use) 
 
 Please satisfy with the following requirements on native or VM Linux in advance.  

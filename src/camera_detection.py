@@ -6,7 +6,7 @@ import time
 model = YOLO("models/yolov8n.pt")   # use nano model for speed
 
 # Open webcam (index 0)
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 if not cap.isOpened():
     raise IOError("Cannot open webcam")
 

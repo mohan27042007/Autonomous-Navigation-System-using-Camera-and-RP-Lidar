@@ -12,7 +12,7 @@ from ultralytics import YOLO
 from rplidar import RPLidar
 import cv2, threading, numpy as np, time, json, os, csv
 
-CONFIG_PATH = "config/settings.json"
+CONFIG_PATH = "./config/settings.json"
 
 # ------------------- Load Config -------------------
 with open(CONFIG_PATH, "r") as cfg:
@@ -35,6 +35,13 @@ def lidar_thread():
     lidar = RPLidar(PORT)
     lidar.start_motor()
     time.sleep(1)
+
+    for _ in range(5):
+        try:
+            next(lidar.iter_scans())
+        except:
+            pass
+
     print("[LIDAR] Running...")
 
     for scan in lidar.iter_scans():
@@ -82,7 +89,7 @@ def main():
     lidar_t.start()
 
     model = YOLO(MODEL_PATH)
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(1)   # Open webcam at index 1
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, FRAME_W)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, FRAME_H)
 

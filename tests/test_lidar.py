@@ -1,13 +1,20 @@
 from rplidar import RPLidar
+import time
 
-PORT = 'COM3'  # use the new active port
-lidar = RPLidar(PORT)
-info = lidar.get_info()
-print(info)
-lidar.start_motor()  # Start scanning
-for scan in lidar.iter_scans():
-    print(scan)
-    break  # Just get one scan for testing
+lidar = RPLidar('COM3')
+lidar.start_motor()
+
+time.sleep(3)   # let it spin up
+
+for i in range(10):
+    try:
+        info = lidar.get_info()
+        health = lidar.get_health()
+        print(info, health)
+        break
+    except Exception as e:
+        print("Read failed:", e)
 
 lidar.stop()
+lidar.stop_motor()
 lidar.disconnect()
